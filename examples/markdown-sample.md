@@ -1,0 +1,2 @@
+- Speed: Processing time improved
+- Quality: Output became more reliable

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Writing Cleanup"
+  short_description: "Bilingual anti-AI-writing cleanup skill"
+  default_prompt: "Use $ai-writing-cleanup to revise this draft so it reads naturally in Japanese or English without obvious AI-writing tells."
