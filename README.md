@@ -1,15 +1,15 @@
 # ai-writing-cleanup
 
-`ai-writing-cleanup` is a bilingual skill and prompt pack for reducing recognizable AI-writing patterns in Japanese and English. The source of truth lives in this repository so the same editorial logic can be used in Codex and adapted to Copilot, Gemini, or Claude Code.
+`ai-writing-cleanup` は、日本語と英語の文章に含まれる「AIが書いたっぽさ」を減らすための bilingual skill と prompt pack です。source of truth はこのリポジトリにあり、同じ編集ルールを Codex でそのまま使いながら、Copilot、Gemini、Claude Code にも流用できます。
 
-## What It Does
+## 何をするものか
 
-- Detects whether a draft is primarily Japanese or English.
-- Removes common AI-writing signals without changing factual meaning.
-- Preserves Markdown structure, citations, and technical terminology.
-- Pushes the editor toward deletion, directness, and human specificity instead of novelty for novelty's sake.
+- 下書きが主に日本語か英語かを見分けます。
+- 事実の意味を変えずに、よくある AI 文体のシグナルを削ります。
+- Markdown の構造、引用、専門用語をできるだけ保ちます。
+- むやみに言い換えるのではなく、削除・単純化・具体化を優先します。
 
-## Repository Layout
+## リポジトリ構成
 
 - [SKILL.md](./SKILL.md)
 - [agents/openai.yaml](./agents/openai.yaml)
@@ -18,28 +18,32 @@
 - [references/en.md](./references/en.md)
 - [prompts/tool-agnostic.md](./prompts/tool-agnostic.md)
 
-## Use In Codex
+## Codex で使う
 
-Copy or symlink this repository into your Codex skills directory, or point Codex at the skill folder directly.
+このリポジトリを Codex の skills ディレクトリにコピーするか symlink してください。あるいは、skill フォルダとして直接参照させても動きます。
 
-Typical invocation:
+典型的な呼び出し方:
 
 ```text
 Use $ai-writing-cleanup to revise this draft so it reads naturally in Japanese or English without obvious AI-writing tells.
 ```
 
-## Use Outside Codex
+## Codex 以外で使う
 
-Open [prompts/tool-agnostic.md](./prompts/tool-agnostic.md) and paste the universal prompt into Copilot, Gemini, Claude Code, or another assistant. The prompt is written so the model edits in place instead of rewriting everything for stylistic novelty.
+[prompts/tool-agnostic.md](./prompts/tool-agnostic.md) を開き、共通プロンプトを Copilot、Gemini、Claude Code などに貼り付けて使ってください。全面リライトではなく、その場で文章を整える前提の書き方にしてあります。
 
-If the assistant tends to over-explain, append:
+説明しすぎるモデルには、以下を追加してください。
 
 ```text
 Return only the revised draft unless I explicitly ask for commentary.
 ```
 
-## Maintenance Notes
+## 保守メモ
 
-- Update the pattern list as public AI-writing tells change.
-- Prefer examples grounded in real prose, not abstract style advice.
-- Add new rules only when they help distinguish useful editing from generic paraphrasing.
+- AI 文体のシグナルは変わるので、公開知見に合わせてルールも更新してください。
+- 抽象的な文体論より、実際の文章に即した例を優先してください。
+- ただの言い換え支援にならないルールだけを増やしてください。
+
+## English Summary
+
+`ai-writing-cleanup` is a bilingual skill and prompt pack for reducing recognizable AI-writing patterns in Japanese and English. It preserves meaning, structure, citations, and terminology while removing common LLM tells such as inflated significance, repetitive transitions, formulaic intros and outros, dash-heavy phrasing, chatbot residue, and vague sourcing.
