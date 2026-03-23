@@ -28,6 +28,20 @@
 Use $ai-writing-cleanup to revise this draft so it reads naturally in Japanese or English without obvious AI-writing tells.
 ```
 
+## Claude Code で使う
+
+Claude Code では、project command を `.claude/commands/` に置くと `/command-name` で呼び出せます。Anthropic の公式ドキュメントでは、project command は `.claude/commands/` 配下の Markdown で定義し、ファイル名がそのまま slash command 名になる形です。
+
+このリポジトリには [`.claude/commands/ai-writing-cleanup.md`](./.claude/commands/ai-writing-cleanup.md) を追加してあるので、Claude Code をこのリポジトリで開けば `/ai-writing-cleanup` と打って呼び出せます。
+
+例:
+
+```text
+/ai-writing-cleanup さらに、この結果は介入の重要性を浮き彫りにしており、今後の展開が注目されます。
+```
+
+ファイルを対象にしたいときは、引数にパスを渡すか、会話中に下書きを貼り付けてから `/ai-writing-cleanup` を実行してください。
+
 ## Codex 以外で使う
 
 [prompts/tool-agnostic.md](./prompts/tool-agnostic.md) を開き、共通プロンプトを Copilot、Gemini、Claude Code などに貼り付けて使ってください。全面リライトではなく、その場で文章を整える前提の書き方にしてあります。
